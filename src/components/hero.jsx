@@ -30,9 +30,7 @@ export default function Hero(){
           <a className="btn primary" href="#contact">
             <FiMail/> Contact Me
           </a>
-          <a className="btn primary" href="#about">
-            About Me
-          </a>
+
           <a className="btn primary" href="#projects">
             Projects
           </a>
