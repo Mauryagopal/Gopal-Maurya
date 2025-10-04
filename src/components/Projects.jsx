@@ -14,7 +14,7 @@ const projects = [
   {
     title: "AI-Powered Real Estate Insights Platform",
     desc: "Random Forest Regressor (R²=0.90, MAE=0.43) with advanced feature engineering and a Cosine Similarity-based recommendation engine, deployed as a Flask app on Render using Docker.",
-    img: "projects/real-eatate-insights.png", // no leading slash
+    img: "projects/real-eatate-insights.png",
     tags: ["Python", "Pandas", "Scikit-learn", "Flask", "Docker", "Machine Learning"],
     code: "https://github.com/Mauryagopal/predictor",
     demo: "https://house-price-app-c5ap.onrender.com/"
@@ -37,7 +37,7 @@ const projects = [
   {
     title: "Customer Segmentation Using K-Means Clustering",
     desc: "Applied K-Means on mall customer data (Age, Income, Spending Score) to identify 5 customer segments with insights into spending behavior for targeted marketing.",
-    img: "projects/customer-segmentation.png", // FIXED: was .jpg
+    img: "projects/customer-segmentation.png",
     tags: ["Python", "K-Means", "Clustering", "EDA", "Scikit-learn"],
     code: "https://github.com/Mauryagopal/Customer-Segmentation-",
     Report: "https://drive.google.com/file/d/1e7vmSZ_cBn392jh-jAxR2a1z4YuG9ynd/view"
@@ -45,7 +45,7 @@ const projects = [
   {
     title: "Food Delivery Time Prediction Model",
     desc: "Flask-based ML app using XGBoost with time-based feature engineering to predict delivery times (MAE ≈ 3.13, R² ≈ 0.87). Containerized with Docker and deployed on Render.",
-    img: "projects/food-delivery-time.png", // FIXED: was .jpg
+    img: "projects/food-delivery-time.png",
     tags: ["Python", "XGBoost", "Flask", "Docker", "Scikit-learn"],
     code: "https://github.com/Mauryagopal/Food-Delivery-Time-Prediction",
     demo: "https://delivery-time-prediction-dpyb.onrender.com/"
@@ -118,7 +118,13 @@ const ProjectCard = React.memo(function ProjectCard({ project }) {
           background: "var(--thumb-bg, #0f172a)"
         }}
       >
-        {!loaded && <div aria-hidden="true" className="shine" style={{ position: "absolute", inset: 0 }} />}
+        {!loaded && (
+          <div
+            aria-hidden="true"
+            className="shine"
+            style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
+          />
+        )}
 
         <img
           src={imgSrc}
@@ -135,7 +141,8 @@ const ProjectCard = React.memo(function ProjectCard({ project }) {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            display: loaded ? "block" : "none"
+            opacity: loaded ? 1 : 0,            // <-- key fix: keep in DOM, just fade in
+            transition: "opacity 200ms ease"    // smooth fade
           }}
         />
       </div>
