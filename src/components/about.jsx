@@ -38,8 +38,7 @@ export default function About(){
         <div className="card" style={{padding:18}}>
           <div style={{fontWeight:800}}>Focus Areas</div>
           <p className="muted" style={{marginTop:8}}>
-            Product analytics, segmentation & churn, forecasting/time series, anomaly detection, experiment analysis,
-            and applied computer vision.
+            Product analytics, segmentation & churn, forecasting/time series, anomaly detection, experiment analysis.
           </p>
         </div>
 
